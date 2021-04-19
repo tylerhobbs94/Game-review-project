@@ -25,7 +25,7 @@ export default function Games() {
     return (
         <div>
             <Row>
-                <Card style={{ border: "none" }} className="col-7 ml-5 bg-dark text-white">
+                <Card style={{ border: "none" }} className="col-5 ml-5 bg-dark text-white">
                     <Card.Img src={gameData.background_image} alt="Card image" />
                     <ListGroup variant="flush">
                         <ListGroup.Item style={{ color: 'white' }} className='bg-dark font-weight-bold'>Game title :  {gameData.name}</ListGroup.Item>
@@ -40,7 +40,7 @@ export default function Games() {
                     <Card.ImgOverlay>
                     </Card.ImgOverlay>
                 </Card>
-                <Card className="col-3 bg-dark ml-5 mb-5">
+                <Card className="col-5 bg-dark ml-5 mb-5">
                     <ListGroup variant="flush">
                         <ListGroup.Item style={{ color: 'white' }} className='bg-dark font-weight-bold'>Game Description</ListGroup.Item>
                         <ListGroup.Item style={{ color: 'white' }} className='bg-dark'>  {gameData.description_raw} </ListGroup.Item>
