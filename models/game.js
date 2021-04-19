@@ -16,10 +16,9 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   Game.init({
+    slug: DataTypes.STRING,
     title: DataTypes.STRING,
-    description: DataTypes.STRING,
-    UserId: DataTypes.INTEGER,
-    GameId: DataTypes.INTEGER
+    description: DataTypes.TEXT,
   }, {
     sequelize,
     modelName: 'Game',

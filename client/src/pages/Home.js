@@ -1,13 +1,15 @@
 import React from 'react'
 import { Button, FormControl, InputGroup } from 'react-bootstrap'
 import { useState } from 'react'
+import { Link } from 'react-router-dom';
 
 export default function Home() {
   const [searchGame, setSearchGame] = useState('');;
   const [games, setGames] = useState([])
+  
 
   const getGames = () => {
-    fetch(`https://api.rawg.io/api/games?key=f0e187292b2a485385b0e17680f16a2b${searchGame}`)
+    fetch(`/api/v1/games/search?search=${searchGame}`)
       .then((res) => res.json())
       .then((data) => {
       setGames(data.results || [])
@@ -23,12 +25,12 @@ const handleChange = (e) => {
 
 
   return (
-    <div >
+    <div style={{color: 'White'}} >
       <h1> Welcome to Simplicity Game Review</h1>
       <h6> where our mission is to have great game reviews and details about the game! </h6>
       <p> Join our community by registering <a href="/register">here</a></p>
       <form onSubmit={handleSubmit}>
-      <InputGroup className="mb-3">
+      <InputGroup className="col-5 d-flex justify-content-center align-items-center mx-auto">
         <FormControl
           type='text' onChange={handleChange} value={searchGame}
           placeholder="Search for a game here."
@@ -36,12 +38,14 @@ const handleChange = (e) => {
           aria-describedby="basic-addon2"
         />
         <InputGroup.Append>
-          <Button variant="outline-secondary">search</Button>
+          <Button variant="outline-secondary bg-primary text-white">search</Button>
         </InputGroup.Append>
       </InputGroup>
       </form>
       {games.map(game => {
-        return (<div>{game.name}</div>)
+        return (<div>
+          <Link to={`/game/${game.slug}`}>{game.name}</Link>
+          </div>)
       })}
     </div>
 

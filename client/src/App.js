@@ -64,7 +64,7 @@ function App() {
           <Route path='/login'>
             <Login />
           </Route>
-          <Route path='/game'>
+          <Route path='/game/:slug'>
             <Game />
           </Route>
         </Switch>

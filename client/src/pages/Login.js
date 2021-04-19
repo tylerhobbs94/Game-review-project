@@ -44,20 +44,20 @@ export default function Login() {
 
     return (
         <div>
-            <Form onSubmit={handleSubmit}>
+            <Form style={{color:'white'}} onSubmit={handleSubmit}>
                 <Form.Group >
                     <Form.Label>User Name</Form.Label>
-                    <Form.Control type="text" placeholder="Enter User Name" onChange={handleChange} value={UserInfo.username} name='username' />
+                    <Form.Control className="col-3 d-flex justify-content-center mx-auto" type="text" placeholder="Enter User Name" onChange={handleChange} value={UserInfo.username} name='username' />
                     <Form.Text className="text-muted" >
                     </Form.Text>
                 </Form.Group>
                 <Form.Group >
                     <Form.Label>Password</Form.Label>
-                    <Form.Control type="password" placeholder="Password" onChange={handleChange} value={UserInfo.password} name='password' />
+                    <Form.Control className="col-3 d-flex justify-content-center mx-auto" type="password" placeholder="Password" onChange={handleChange} value={UserInfo.password} name='password' />
                 </Form.Group>
                 <Button variant="dark" type="submit">
                     Login
-  </Button>
+                </Button>
             </Form>
         </div>
     )
