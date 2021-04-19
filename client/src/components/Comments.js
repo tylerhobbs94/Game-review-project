@@ -10,6 +10,7 @@ export default function Comments(props) {
     const [commentForm, setCommentForm] = useState(true)
     const [text, setText] = useState('');
     const user = useSelector((state) => state.user);
+    const [deleteForm, setDeleteForm] = useState(false)
 
 
     const getComments = () => {
@@ -50,8 +51,10 @@ export default function Comments(props) {
             alert(data.error)
         }
         getComments()
+        setDeleteForm(true)
     })
 }
+
 
 
 
