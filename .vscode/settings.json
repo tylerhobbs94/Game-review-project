@@ -1,5 +1,10 @@
 {
     "cSpell.words": [
-        "metacritic"
+        "metacritic",
+        "resave"
+    ],
+    "cSpell.ignoreWords": [
+        "props",
+        "slug"
     ]
 }

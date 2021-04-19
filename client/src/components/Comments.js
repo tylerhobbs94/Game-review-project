@@ -10,7 +10,7 @@ export default function Comments(props) {
     const [commentForm, setCommentForm] = useState(true)
     const [text, setText] = useState('');
     const user = useSelector((state) => state.user);
-    const [deleteForm, setDeleteForm] = useState(false)
+
 
 
     const getComments = () => {
@@ -22,7 +22,7 @@ export default function Comments(props) {
     }
     useEffect(() => {
         getComments()
-    }, [props.slug])
+    },)
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -51,15 +51,12 @@ export default function Comments(props) {
             alert(data.error)
         }
         getComments()
-        setDeleteForm(true)
     })
 }
 
 
-
-
-    return (
-        <div>
+return (
+    <div>
             {comments.map((comment) => {
                 //map through comments to get the comment text
                 return <div > 
@@ -70,9 +67,19 @@ export default function Comments(props) {
                             User: {comment.User.username}
                             <br></br>
                             <br></br>
-                            <Button onClick={()=> deleteComment(comment.id)} type="submit">
-                              Delete comment
-                            </Button>
+                            {user ? (
+
+                                user.id === comment.User.id ? (
+                                        <Button onClick={()=> deleteComment(comment.id)} type="submit">
+                                          Delete comment
+                                        </Button>
+                                    
+                                    ):(
+                                    <p></p>
+                                    )
+                            ):(
+                                <p></p>
+                            )}
                         </Card.Body>
                     </Card>
                     <div>
